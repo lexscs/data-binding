@@ -3,17 +3,9 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-data-binding',
-  templateUrl: './data-binding.component.html',
-  //styleUrls: ['./data-binding.component.scss']
+  templateUrl: './data-binding.component.html'
+  //styleUrls: ['./data-binding.component.scss'],
 
-  styles: [
-    `
-    .highlight {
-        background-color: yellow;
-        font-weight: bold;
-    }
-  `
-  ]
 })
 export class DataBindingComponent implements OnInit {
   url: string = 'informação';
@@ -21,10 +13,20 @@ export class DataBindingComponent implements OnInit {
   urlImagem = 'http://lorempixel.com.br/400/200';
 
   valorAtual: string = '';
-  valorSalvo = '';
+  valorSalvo: any = '';
 
   isMouseOver: boolean = false;
 
+  nomeDoCurso: string = 'Angular';
+
+  valorInicial: number = 15;
+
+  nome: string = 'abc';
+
+  pessoa: any = {
+    nome: 'def',
+    idade: 20
+  }
 
   getValor() {
     return 1;
@@ -51,8 +53,18 @@ export class DataBindingComponent implements OnInit {
     this.isMouseOver = !this.isMouseOver;
   }
 
-  constructor() { }
+  onMudouValor({ evento }: { evento: { novoValor: any; }; }){
+    console.log(evento.novoValor);
+  }
+
+
+
+  constructor() { /* TODO document why this constructor is empty */  }
 
   ngOnInit() {
+    // TODO document why this method 'ngOnInit' is empty
+
+
+
   }
 }

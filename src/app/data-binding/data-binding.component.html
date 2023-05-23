@@ -10,8 +10,8 @@
   </article>
   <article>
     <h3>Property Binding</h3>
-    <img src="{{ urlImagem }}" >
-    <img [src]="urlImagem" >
+    <img src="{{ urlImagem }}" alt="">
+    <img [src]="urlImagem" alt="">
   </article>
 
   <article>
@@ -44,6 +44,8 @@
   </article>
 
 </section>
+
+
 <section>
   <article>
     <h3>Event Binding</h3>
@@ -58,8 +60,7 @@
     (keyup)="onKeyUp($event)"
     (keyup.enter)="salvarValor(campoInput.value)"
     (blur)="salvarValor(campoInput.value)"
-    #campoInput
-    />
+    #campoInput />
 
 
     <p>Valor atual: {{ valorAtual }}</p>
@@ -70,7 +71,52 @@
       (mouseouver)="onMouseOverOut()"
       (mouseout)="onMouseOverOut()"
       [class.highlight] = "isMouseOver">
-      Passe o mouse aqui!</span>
+      Passe o mouse aqui!!!
+    </span>
 
   </article>
+</section> 
+
+<section class="two-way-binding">
+  <article>
+    <h3>
+      Two-way Data Binding
+    </h3>
+    <div>
+
+      <input type="text"
+        [ngModel]="nome"
+        (ngModelChange)="nome = $event"
+      />
+
+      <input type="text" [(ngModel)]="nome">
+
+      <p>Você digitou o {{ nome }}</p>
+
+      <div>
+
+        <p>Meu nome é {{ pessoa.nome }} e tenho {{ pessoa.idade }} anos de idade!</p>
+        <input type="text" [(ngModel)]="pessoa.nome">
+        <input type="number" [(ngModel)]="pessoa.idade">
+
+      </div>
+
+    </div>
+  </article>
+
+</section>
+
+<section class="input-output-properties">
+
+  <article>
+    <h3>Input/Output Properties</h3>
+
+    <app-curso [nome]="nomeDoCurso"></app-curso>
+
+    <contador [valor]="valorInicial">
+      (mudouValor)="onMudouValor($event)"
+    </contador>
+
+  </article>
+
 </section>
